@@ -1,18 +1,26 @@
-// Inspirico starter website interactions.
-// Before publishing, replace the placeholder email in this file and in index.html.
+// Inspirico website interactions
+// Business email: inspiricobd@gmail.com
+
+// Mobile navigation
 const menuToggle = document.querySelector(".menu-toggle");
 const navLinks = document.querySelector(".nav-links");
 
 if (menuToggle && navLinks) {
   menuToggle.addEventListener("click", () => {
     const isOpen = navLinks.classList.toggle("open");
+
     menuToggle.setAttribute("aria-expanded", String(isOpen));
-    menuToggle.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Close navigation" : "Open navigation"
+    );
     menuToggle.textContent = isOpen ? "×" : "☰";
   });
+
   navLinks.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
       navLinks.classList.remove("open");
+
       menuToggle.setAttribute("aria-expanded", "false");
       menuToggle.setAttribute("aria-label", "Open navigation");
       menuToggle.textContent = "☰";
@@ -20,36 +28,74 @@ if (menuToggle && navLinks) {
   });
 }
 
+// Automatically update copyright year
 const year = document.getElementById("year");
-if (year) year.textContent = new Date().getFullYear();
 
+if (year) {
+  year.textContent = new Date().getFullYear();
+}
+
+// Enquiry form
 const form = document.getElementById("enquiry-form");
 const status = document.getElementById("form-status");
-const BUSINESS_EMAIL = "inspiricobd@gmail.com"; // Replace with your real business email.
 
-if (form) {
+const BUSINESS_EMAIL = "inspiricobd@gmail.com";
+
+if (form && status) {
   form.addEventListener("submit", (event) => {
     event.preventDefault();
+
     const data = new FormData(form);
+
     const name = String(data.get("name") || "").trim();
     const email = String(data.get("email") || "").trim();
     const service = String(data.get("service") || "").trim();
     const message = String(data.get("message") || "").trim();
 
+    // Validate required fields
     if (!name || !email || !service) {
-      status.textContent = "Please complete your name, email and service selection.";
-      return;
-    }
-    if (BUSINESS_EMAIL === "inspiricobd@gmail.com") {
-      status.textContent = "Demo mode: please replace YOUR_EMAIL@example.com in script.js with your business email before using this form.";
+      status.textContent =
+        "Please enter your name, email address, and select a service.";
       return;
     }
 
-    const subject = encodeURIComponent(`Inspirico enquiry: ${service}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nInterested in: ${service}\n\nMessage:\n${message || "No additional message."}`
+    // Validate email format
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email)) {
+      status.textContent =
+        "Please enter a valid email address.";
+      return;
+    }
+
+    // Prepare enquiry email
+    const subject = encodeURIComponent(
+      `Inspirico Enquiry: ${service}`
     );
-    status.textContent = "Opening your email app with your enquiry…";
-    window.location.href = `mailto:${BUSINESS_EMAIL}?subject=${subject}&body=${body}`;
+
+    const body = encodeURIComponent(
+      `Hello Inspirico Team,
+
+I would like to enquire about your services.
+
+Name: ${name}
+Email: ${email}
+Interested in: ${service}
+
+Message:
+${message || "No additional message provided."}
+
+Best regards,
+${name}`
+    );
+
+    // Open the visitor's default email application
+    const mailtoLink =
+      `mailto:${BUSINESS_EMAIL}?subject=${subject}&body=${body}`;
+
+    status.textContent =
+      "Opening your email application. Please send the prepared enquiry to complete your submission.";
+
+    window.location.href = mailtoLink;
   });
 }
