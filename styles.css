@@ -64,3 +64,26 @@
   }
 }
 ```
+```css
+/* Increase Inspirico header logo size */
+.site-header .brand {
+  flex-shrink: 0;
+}
+
+.site-header .brand-logo {
+  width: 240px;
+  height: 76px;
+  max-width: none;
+  max-height: 76px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+@media (max-width: 700px) {
+  .site-header .brand-logo {
+    width: 190px;
+    height: 62px;
+    max-height: 62px;
+  }
+}
+```
