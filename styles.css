@@ -34,4 +34,52 @@
     width: 130px;
   }
 }
+
+
+```css
+/* Fix oversized logo in header */
+.site-header .nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.site-header .brand {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: 190px;
+  overflow: hidden;
+}
+
+.site-header .brand-logo {
+  display: block;
+  width: 175px;
+  height: 55px;
+  max-height: 55px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+/* Keep navigation on the right */
+.site-header .nav-links {
+  flex: 1;
+  min-width: 0;
+  justify-content: flex-end;
+}
+
+/* Mobile adjustment */
+@media (max-width: 768px) {
+  .site-header .brand {
+    max-width: 145px;
+  }
+
+  .site-header .brand-logo {
+    width: 140px;
+    height: 45px;
+    max-height: 45px;
+  }
+}
 ```
