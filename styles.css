@@ -63,3 +63,35 @@
     height: 58px;
   }
 }
+
+/* Fix Inspirico logo in header and footer */
+.site-header .brand,
+.site-footer .brand-footer {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.site-header .brand-logo {
+  display: block;
+  width: 220px;
+  height: 78px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.site-footer .brand-footer .footer-logo {
+  display: block;
+  width: 220px;
+  height: 78px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+@media (max-width: 700px) {
+  .site-header .brand-logo,
+  .site-footer .brand-footer .footer-logo {
+    width: 175px;
+    height: 62px;
+  }
+}
