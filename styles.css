@@ -3,9 +3,9 @@
 @media(max-width:700px){.container{width:min(100% - 34px,560px)}.site-header{height:70px}.brand{font-size:23px}.menu-toggle{display:block}.nav-links{display:none;position:absolute;top:69px;left:0;right:0;background:white;border-bottom:1px solid var(--line);padding:18px 24px 24px;flex-direction:column;align-items:stretch;gap:17px;box-shadow:0 15px 25px rgba(11,31,77,.07)}.nav-links.open{display:flex}.nav-links .button{align-self:flex-start}.hero{padding-top:43px}.hero-grid{grid-template-columns:1fr;gap:0}.hero-copy{padding:10px 0 5px}.hero h1{font-size:clamp(42px,11vw,58px)}.hero-lead{font-size:15px}.hero-art{min-height:390px;margin-top:5px}.art-card{width:min(340px,78%);padding:17px 20px}.globe{width:220px}.tag-one{left:0;top:18%}.tag-two{right:0;bottom:14%}.hero-footer{font-size:8px;letter-spacing:1px;gap:10px}.section{padding:70px 0}.section-heading{margin-bottom:30px}.section-heading h2,.contact h2{font-size:36px}.service-grid{grid-template-columns:1fr}.service-card{padding:25px}.service-card>p:not(.card-kicker){min-height:0}.process-grid,.contact-grid{grid-template-columns:1fr;gap:38px}.process-heading{margin-bottom:0}.about{padding:55px 0}.about-panel{grid-template-columns:1fr;padding:35px 25px;gap:30px}.about-mark{width:145px;height:145px}.about-i{font-size:100px}.about-orbit{width:175px;height:60px;border-width:6px}.about-copy h2{font-size:35px}.about-values{gap:12px}.contact-form{padding:24px 19px}.footer-main{flex-wrap:wrap}.footer-main p{width:100%;order:3}.back-top{margin-left:auto}.footer-bottom{flex-direction:column;gap:7px}.float-tag{padding:10px 12px}.float-tag b{font-size:10px}.float-tag small{font-size:9px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important;animation:none!important}}
 ```css
-/* Inspirico header logo fix */
+/* Inspirico logo — clean header sizing */
 .site-header {
-  height: 82px;
+  height: 88px;
 }
 
 .site-header .nav {
@@ -17,73 +17,28 @@
 }
 
 .site-header .brand {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   flex: 0 0 auto;
-  width: auto;
-  max-width: none;
-  overflow: visible;
+  text-decoration: none;
 }
 
 .site-header .brand-logo {
   display: block;
-  width: 175px;
-  height: 65px;
-  max-width: 100%;
-  max-height: 65px;
+  width: 220px;
+  height: 78px;
   object-fit: contain;
   object-position: left center;
-}
-
-.site-header .nav-links {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 20px;
-  flex: 1 1 auto;
-  min-width: 0;
 }
 
 @media (max-width: 700px) {
   .site-header {
-    height: 70px;
+    height: 72px;
   }
 
   .site-header .brand-logo {
-    width: 135px;
-    height: 52px;
-    max-height: 52px;
-  }
-
-  .site-header .nav-links {
-    display: none;
-  }
-
-  .site-header .nav-links.open {
-    display: flex;
-  }
-}
-```
-```css
-/* Increase Inspirico header logo size */
-.site-header .brand {
-  flex-shrink: 0;
-}
-
-.site-header .brand-logo {
-  width: 240px;
-  height: 76px;
-  max-width: none;
-  max-height: 76px;
-  object-fit: contain;
-  object-position: left center;
-}
-
-@media (max-width: 700px) {
-  .site-header .brand-logo {
-    width: 190px;
+    width: 175px;
     height: 62px;
-    max-height: 62px;
   }
 }
 ```
