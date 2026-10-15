@@ -25,7 +25,7 @@ if (year) year.textContent = new Date().getFullYear();
 
 const form = document.getElementById("enquiry-form");
 const status = document.getElementById("form-status");
-const BUSINESS_EMAIL = "YOUR_EMAIL@example.com"; // Replace with your real business email.
+const BUSINESS_EMAIL = "inspiricobd@gmail.com"; // Replace with your real business email.
 
 if (form) {
   form.addEventListener("submit", (event) => {
@@ -40,7 +40,7 @@ if (form) {
       status.textContent = "Please complete your name, email and service selection.";
       return;
     }
-    if (BUSINESS_EMAIL === "YOUR_EMAIL@example.com") {
+    if (BUSINESS_EMAIL === "inspiricobd@gmail.com") {
       status.textContent = "Demo mode: please replace YOUR_EMAIL@example.com in script.js with your business email before using this form.";
       return;
     }
