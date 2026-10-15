@@ -6,7 +6,7 @@
 /* Fix oversized logo in header */
 .site-header .nav {
   display: flex;
-  align-items: center;
+  align-items: left;
   justify-content: space-between;
   gap: 24px;
 }
@@ -16,14 +16,14 @@
   align-items: center;
   flex: 0 0 auto;
   width: auto;
-  max-width: 190px;
+  max-width: 19px;
   overflow: hidden;
 }
 
 .site-header .brand-logo {
   display: block;
-  width: 175px;
-  height: 55px;
+  width: 17px;
+  height: 5px;
   max-height: 55px;
   object-fit: contain;
   object-position: left center;
